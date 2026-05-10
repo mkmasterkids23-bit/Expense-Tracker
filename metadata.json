@@ -1,0 +1,6 @@
+{
+  "name": "Secure Auth",
+  "description": "Enterprise-grade real-time authentication system with secure user tables, OTP verification, and adaptive login flows.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
