@@ -36,17 +36,18 @@ export default function SignUp() {
       const { data, error: authError } = await insforge.auth.signUp({
         email: email.trim().toLowerCase(),
         password: password.trim(),
-        options: {
-          data: { name: name.trim() }
-        }
+        name: name.trim()
       });
 
-      if (authError) throw authError;
+      if (authError) {
+        console.error("[SIGNUP ERROR DETAIL]:", authError);
+        throw authError;
+      }
 
       // Navigate to OTP page
       navigate(`/otp?email=${encodeURIComponent(email.trim().toLowerCase())}&mode=signup`);
     } catch (err: any) {
-      console.error("[SIGNUP ERROR]:", err);
+      console.error("[SIGNUP CATCH ERROR]:", err);
       setError(err.message || "Failed to create account");
     } finally {
       setLoading(false);

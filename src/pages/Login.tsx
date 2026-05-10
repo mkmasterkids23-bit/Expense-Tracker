@@ -31,13 +31,14 @@ export default function Login() {
       });
 
       if (authError) {
+        console.error("[LOGIN AUTH ERROR DETAIL]:", authError);
         throw authError;
       }
 
       await refreshUser();
       navigate('/dashboard');
     } catch (err: any) {
-      console.error("[AUTH ERROR]:", err);
+      console.error("[LOGIN CATCH ERROR]:", err);
       setError(err.message || "Invalid email or password");
       setShake(true);
       setTimeout(() => setShake(false), 500);
